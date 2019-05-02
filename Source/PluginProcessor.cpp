@@ -143,8 +143,7 @@ void SoundTouchPlugAudioProcessor::processBlock (AudioBuffer<float>& buffer, Mid
     auto totalNumOutputChannels = getTotalNumOutputChannels();
 	for (auto i = totalNumInputChannels; i < totalNumOutputChannels; ++i)
         buffer.clear (i, 0, buffer.getNumSamples());
-	float semitones = *m_par_semitones;
-	m_st->setPitchSemiTones(semitones);
+	m_st->setPitchSemiTones(*m_par_semitones);
 	// copy input samples in interleaved format to helper buffer
 	for (int i = 0; i < nch; ++i)
 		for (int j = 0; j < buffer.getNumSamples(); ++j)
